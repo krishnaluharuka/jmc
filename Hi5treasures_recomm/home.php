@@ -61,8 +61,8 @@ img:hover {
 </head>
 
 <body>
-
-  <div class="font-effect-shadow-multiple">
+<h2> Hello Krishan. its me sadikshya.</h2>
+    <div class="font-effect-shadow-multiple">
     <h1 class="text-center my-1"><?php echo $company_name; ?></h1>
     <!-- <div class="text-center">
       <img src="images/line.jpg" height="25em" width="35%">
