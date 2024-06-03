@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    background-color: antiquewhite;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    text-transform: capitalize;
+    margin-right: 15px;
+    transition: all 0.4s;
+    padding: 10px;
+}
+
+.nav-item a:hover {
+    color: rgb(197, 12, 99);
+}
+
+.search {
+    border: 2px solid black;
+    background-color: white;
+    border-radius: 20px 0px 0px 20px;
+    border-right: none;
+}
+
+.btn1 {
+    background-color: white;
+    color: black;
+    border-radius: 0px 20px 20px 0px;
+    transition: all 0.4s;
+}
+
+.btn1:hover {
+    background-color: rgb(254, 253, 255);
+}
+
+.bi-person {
+    font-size: 25px;
+    color: black;
+    cursor: pointer;
+    padding-top: 5px;
+    transition: all 0.4s;
+}
+
+.bi-person:hover {
+    color: rgb(197, 12, 99);
+}
+
+.bi-journal-check {
+    font-size: 25px;
+    color: black;
+    cursor: pointer;
+    padding-top: 5px;
+    transition: all 0.4s;
+}
+
+.bi-journal-check:hover {
+    color: rgb(197, 12, 99);
+}
+
+.bi-box-arrow-in-right {
+    font-size: 25px;
+    color: black;
+    cursor: pointer;
+    padding-top: 5px;
+    transition: all 0.4s;
+}
+
+.bi-box-arrow-in-right:hover {
+    color: rgb(197, 12, 99);
+}
+
+.navbar-toggler {
+    font-size: 20px;
+    color: black;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.main p {
+    font-size: 18px;
+    font-weight: 700px;
+}
+
+.mbtn1 {
+    height: 50px;
+    width: 25%;
+    outline: none;
+    border: none;
+    padding: 5px;
+    margin: auto;
+    color: white;
+    background: rgb(197, 12, 99);
+    border-radius: 50px;
+    transition: all 0.4s;
+}
+
+.mbtn1:hover {
+    background-color: antiquewhite;
+    color: black;
+    border: 1px solid black;
+}
+
+.mbtn2 {
+    height: 50px;
+    width: 25%;
+    outline: none;
+    border: none;
+    padding: 5px;
+    margin: auto;
+    color: white;
+    background: rgb(197, 12, 99);
+    border-radius: 50px;
+    transition: all 0.4s;
+}
+
+.mbtn2:hover {
+    background-color: antiquewhite;
+    color: black;
+    border: 1px solid black;
+}
+
+.mbtn3 {
+    height: 50px;
+    width: 45%;
+    outline: none;
+    border: none;
+    padding: 5px;
+    margin: auto;
+    color: white;
+    background: rgb(197, 12, 99);
+    border-radius: 50px;
+    transition: all 0.4s;
+}
+
+.mbtn3:hover {
+    background-color: antiquewhite;
+    color: black;
+    border: 1px solid black;
+}
+
+.mbtn4 {
+    height: 50px;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 5px;
+    margin: auto;
+    color: white;
+    background: rgb(197, 12, 99);
+    border-radius: 50px;
+    transition: all 0.4s;
+}
+
+.mbtn4:hover {
+    background-color: antiquewhite;
+    color: black;
+    border: 1px solid black;
+}
+
+.features .card {
+    margin-right: 10px;
+    outline: black;
+}
+
+.features .card :hover {
+    background: antiquewhite;
+}
+
+.cards-wrapper {
+    display: flex;
+}
+
+.products .card {
+    margin-right: 2px;
+    outline: black;
+    border: 1px solid black;
+    width: calc(100%/3);
+}
+
+.image-wrapper {
+    height: 22vw;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.reviews {
+    background-size: cover;
+}
+
+.img-area img {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    border: 2px solid rgb(197, 12, 99);
+    margin-left: 150px;
+
+
+}
+
+.contact {
+    background: antiquewhite;
+    background-size: cover;
+    width: 100%;
+}
+
+span {
+    background: rgb(197, 12, 99);
+    color: rgb(254, 253, 255);
+    clip-path: polygon(100% 0%, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+}
+
+.contact .container .row a {
+    color: black;
+    padding: .5rem;
+    height: 4rem;
+    width: 4rem;
+    border: 0px solid black;
+    border-radius: .5rem;
+    font-size: 1rem;
+    margin-left: .2rem;
+}
+
+.contact .container .row a:hover {
+    color: rgb(197, 12, 99);
+    padding: .5rem;
+    background: white;
+}
+
+.contact .container .row p:hover {
+    color: rgb(197, 12, 99);
+    padding: .5rem;
+
+}
+
+.contact .container .row h3:hover {
+    color: rgb(197, 12, 99);
+    padding: .5rem;
+
+}
+
+.contact p:hover {
+    color: rgb(197, 12, 99);
+}
+
+.cat_container {
+    background: antiquewhite;
+    background-size: cover;
+    width: 100%;
+}
+
+.input-group {
+    outline: black;
+    border: black;
+    color: white;
+    background: rgb(197, 12, 99);
+    transition: all 0.4s;
+}
+
+.input-group:hover {
+    background-color: rgb(213, 174, 202);
+    color: black;
+    border: 1px solid black;
+}
+
+.footer {
+    background-color: antiquewhite;
+    background-size: cover;
+}
+
+.inserting {
+    background: antiquewhite;
+    background-size: cover;
+}
