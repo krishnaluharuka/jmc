@@ -4,6 +4,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 include('../includes/connect.php');
 include('navbar3.php');
+
 $admin_user = $_SESSION['admin_name'];
 
 if (!isset($admin_user)) {
@@ -17,7 +18,7 @@ if (!isset($admin_user)) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin DashBoard</title>
-  <link href="../images/logo.jpg" rel="icon" type="image/icon">
+  <link href="admin_images/<?php echo $logo; ?>" rel="icon" type="image/icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -108,6 +109,12 @@ if (!isset($admin_user)) {
             <a class="nav-link text-dark" aria-current="page" href="index.php?edit_about_us"><i class="bi bi-box-arrow-in-down-left pe-2"></i> Edit About Us</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link text-dark" aria-current="page" href="index.php?insert_faq"><i class="bi bi-question pe-2"></i> Insert faq</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" aria-current="page" href="index.php?list_faq"><i class="bi bi-question-square pe-2"></i> View faq</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link text-dark" aria-current="page" href="index.php?insert_product"><i class="bi bi-plus pe-2"></i> Insert Products</a>
           </li>
           <li class="nav-item">
@@ -148,6 +155,18 @@ if (!isset($admin_user)) {
         }
         if (isset($_GET['edit_about_us'])) {
           include('edit_about_us.php');
+        }
+        if (isset($_GET['insert_faq'])) {
+          include('faq.php');
+        }
+        if (isset($_GET['list_faq'])) {
+          include('list_faq.php');
+        }
+        if (isset($_GET['edit_faq'])) {
+          include('edit_faq.php');
+        }
+        if (isset($_GET['delete_faq'])) {
+          include('delete_faq.php');
         }
         if (isset($_GET['insert_product'])) {
           include('insert_product.php');
