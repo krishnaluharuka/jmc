@@ -1,94 +1,156 @@
 <?php
 if (session_status() == PHP_SESSION_NONE) {
-    session_start();
+  session_start();
 }
 include('../includes/connect.php');
-include('setting.php');
-include('navbar1.php');
+include('../functions/common_functions.php');
 include('../include_aboutus.php');
 
-$user_name = $_SESSION['username'];
+$admin_user = $_SESSION['admin_name'];
 
-if (!isset($user_name)) {
-    echo "<script>window.open('user_login.php','_self')</script>";
-    exit();
+if (!isset($admin_user)) {
+  echo "<script>window.open('../users_area/user_login.php','_self')</script>";
 }
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment page</title>
-    <link href="../admin_area/admin_images/<?php echo $logo; ?>" rel="icon" type="image/icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="../css/style.css" rel="stylesheet">
-    <style>
-        .full-height {
-            height: 80vh;
-        }
-        .mbtn5 {
-            height: 50px;
-            width: 100%;
-            outline: none;
-            border: none;
-            color: white;
-            background: rgb(197, 12, 99);
-            border-radius: 50px;
-            transition: all 0.4s;
-        }
 
-        .mbtn5:hover {
-            background-color: antiquewhite;
-            color: black;
-            border: 1px solid black;
-        }
-    </style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../images/logo.jpg" rel="icon" type="image/icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+  <link href="css/style.css" rel="stylesheet">
+  <style>
+    .bi-journal-text {
+      font-size: 23px;
+      color: black;
+      cursor: pointer;
+      /* padding-top: 5px; */
+      transition: all 0.4s;
+    }
+
+    .bi-journal-text:hover {
+      color: rgb(197, 12, 99);
+    }
+
+    .bi-box-arrow-in-right {
+      font-size: 30px;
+      color: black;
+      cursor: pointer;
+      /* padding-top: 5px; */
+      transition: all 0.4s;
+    }
+
+    .bi-box-arrow-in-right:hover {
+      color: rgb(197, 12, 99);
+    }
+
+    .nav-item a:hover {
+      border-bottom: 2px solid #ccc;
+    }
+    .bg1{
+    background-image: url(../images/bg9.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+    }
+  </style>
 </head>
+
 <body>
-    <div>
-    <div class="container full-height d-flex justify-content-center align-items-center">
-                <div class="row d-flex justify-content-center align-items-center">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <form action="confirm_payment1.php" method="POST">
-                        <div class="text-center">
-                        <input value="<?php echo $order_id ?>" name="order_id" type="hidden">
-                        <input value="Pay offline" type="submit" name="submit" class="mbtn5 px-2 my-3">
-                        </div>
-                     </form>
-                    </div>
-                
-        <form action=<?php echo $epay_url ?> method="POST">
-            <input value="<?php echo $actualamount; ?>" name="tAmt" type="hidden">
-            <input value="<?php echo $amount_due; ?>" name="amt" type="hidden">
-            <input value="0" name="txAmt" type="hidden">
-            <input value="0" name="psc" type="hidden">
-            <input value="<?php echo $damt; ?>" name="pdc" type="hidden">
-            <input value=<?php echo $merchant_code ?> name="scd" type="hidden">
-            <input value="<?php echo $order_id ?>" name="pid" type="hidden">
-            <input value=<?php echo $successurl ?> type="hidden" name="su">
-            <input value=<?php echo $failedurl ?> type="hidden" name="fu">
-            
-            
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="text-center">
-                            <input value="Pay with Esewa" type="submit" class="mbtn5 px-2">
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <nav class="navbar navbar-container navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid m-2">
+      <?php
+      echo "<a class='navbar-brand' href='index.php'>
+      <img src='admin_images/$logo' alt='Company Logo' width='100' height='100'></a>";
+      ?>
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="../home.php">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../aboutus.php">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../reviews.php">Reviews</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.php">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../faq_display.php">FAQ</a>
+          </li>
+          <?php 
+          // if(isset($_SESSION['user_id'])){
+          //   echo "<li class='nav-item'>
+          //   <a class='nav-link' href='../recommendation.php'>Choices</a>
+          // </li>";
+          // }
+          ?>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="../cart.php"><i class="bi bi-cart-fill m-0"></i><sup><?php //cart_item(); ?></sup></a>
+          </li> -->
+          <li>
+          <?php 
+          if(isset($_SESSION['username'])){
+          $username=$_SESSION['username'];
+          $get_notification = "Select * from chat where is_read = 0";
+          $result5 = mysqli_query($con, $get_notification);
+           $row_count5 = mysqli_num_rows($result5);
+           echo "<a class='nav-link tect-decoration-none text-dark' href='index.php?list_users'><i class='bi bi-bell-fill fs-5 text-dark'></i><sup><sup class='text-dark'>$row_count5</sup></a>";
+      }
+           ?>
+           </li>
+           <li>
+
+<?php 
+          // if(isset($_SESSION['username'])){
+          //  echo "<a class='nav-link tect-decoration-none text-dark' href='../wishlist.php'><i class='bi bi-bookmark-heart fs-5 mx-1'></i></a>";
+          // }
+      
+           ?>
+           </li>
+         
+        </ul>
+        <form class="d-flex" action="../search_product.php" method="get">
+          <input class="px-2 search" type="search" height="60" placeholder="Search Here" name="search_data">
+          <input type="submit" value="Search" class="btn1 px-3 me-2" name="search_data_product">
         </form>
-        
+        <?php
+          echo "<a class='nav-link text-dark' href='logout.php'>
+        <i class='bi bi-box-arrow-in-right'></i></a>";
+        ?>
+      </div>
     </div>
-    <footer class="contact">
-        <p class="text-center py-3">
-            <a href="https://github.com/krishnaluharuka/Hi5treasures._.pkr" class="text-decoration-none text-dark">
-                By Janapriya Multiple Campus | All Rights Reserved
-            </a>
+  </nav>
+  <nav class="navbar-light bg1">
+    <div class="container">
+      <div class="navbar1">
+        <p class="text-center fs-5 p-2">
+          <?php
+          if (!isset($_SESSION['admin_name'])) {
+            echo "<a class='nav-link text-dark' href='#'>Welcome Guest</a>";
+          } else {
+            echo "<a class='nav-link text-dark' href='profile.php'>Welcome " . $_SESSION['admin_name'] . "</a>";
+          }
+
+          ?>
         </p>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      </div>
+    </div>
+  </nav>
+  <?php
+  cart();
+  ?>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
+
 </html>
-<?php mysqli_close($con); ?>
