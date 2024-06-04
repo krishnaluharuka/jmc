@@ -91,19 +91,17 @@ include('include_aboutus.php');
           <?php 
           if(isset($_SESSION['username'])){
           $username=$_SESSION['username'];
-           $get_notification = "Select COUNT(*) as unread from chat where username='$username' AND is_read=1 and is_seen= 0";
+           $get_notification = "Select * from chat where username='$username' AND is_read=1 AND is_seen= 0";
            $result5 = mysqli_query($con, $get_notification);
-           $unread=0;
-           if ($result5) {
-            $message_data = mysqli_fetch_assoc($result5);
-            $unread= $message_data['unread'];
-        }
-        else{
-          $unread=0;
-        }
-           $row_count5 = mysqli_num_rows($result5);
-           echo "<a class='nav-link tect-decoration-none text-dark' href='chatbox.php'><i class='bi bi-bell-fill fs-5 text-dark'></i><sup><sup class='text-dark'>$unread</sup></sup></a>";
+           //$unread=0;
+           $count=mysqli_num_rows($result5);
+           
+           echo "<a class='nav-link tect-decoration-none text-dark' href='chatbox.php'><i class='bi bi-bell-fill fs-5 text-dark'></i><sup><sup class='text-dark'>$count</sup></sup></a>";
+           $update = "Update chat set is_seen=1 where username='$username' AND is_read=1 AND is_seen= 0";
+           $result5 = mysqli_query($con, $update);
+        
       }
+    
            ?>
            </li>
            <li>
