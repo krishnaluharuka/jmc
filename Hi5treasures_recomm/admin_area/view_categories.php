@@ -26,7 +26,7 @@ if (!isset($admin_user)) {
 
 <body>
     <h3 class="text-center my-5">ALL <span class="px-4">CATEGORIES</span></h3>
-    <table class="table table-bordered border border-dark w-50 mt-5 m-auto">
+    <table id="myTable" class="table table-bordered border border-dark w-50 mt-5 m-auto">
         <thead class="bg">
             <tr>
                 <th>S.No</th>
@@ -76,7 +76,9 @@ if (!isset($admin_user)) {
             ?>
         </tbody>
     </table>
-
+<?php
+include ('page.php');
+?>
     <!-- Modal -->
 
 </body>
