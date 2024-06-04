@@ -20,14 +20,14 @@ include('include_aboutus.php');
 <body> -->
 
   <footer class="contact">
-    <div class="container">
+    <div class="container text-center">
       <div class="row">
-        <div class="col-lg-4 col-md-12 col-sm-12 pt-5">
-          <div class="social-media">
+        <div class="col-lg-4 col-md-12 col-sm-12 pt-5 ">
+          <div class="social-media ">
             <h3><?php echo $company_name; ?></h3>
             <p style="line-height: 1.8;">Feel Free to follow us on our social media handlers.All the links are given
               below.</p>
-            <div class="socio text-center">
+            <div class="socio ">
               <a href="<?php echo $fb_link; ?>" class="fa-brands fa-facebook h-50"></a>
               <a href="<?php echo $whatsapp_link; ?>" class="fa-brands fa-whatsapp h-50"></a>
               <a href="<?php echo $insta_link; ?>" class="fa-brands fa-instagram h-50"></a>
@@ -44,12 +44,16 @@ include('include_aboutus.php');
           <p><i class="bi bi-geo-alt-fill"></i><?php echo $address; ?></p>
 
         </div>
-        <div class="quick-links col-lg-4 col-md-12 col-sm-12 py-5">
+        <div class="quick-links col-lg-4 col-md-12 col-sm-12 py-5 text-center">
           <h3>Quick-Links</h3>
-          <p><i class="bi bi-arrow-right-circle"></i> <a href="home.php" class="text-decoration-none">Home</a></p>
+          <!-- <p><i class="bi bi-arrow-right-circle"></i> <a href="home.php" class="text-decoration-none">Home</a></p>
           <p><i class="bi bi-arrow-right-circle"></i> <a href="aboutus.php" class="text-decoration-none">About Us</a></p>
           <p><i class="bi bi-arrow-right-circle"></i> <a href="reviews.php" class="text-decoration-none">Reviews</a></p>
-          <p><i class="bi bi-arrow-right-circle"></i> <a href="contact.php" class="text-decoration-none">Contact Us</a></p>
+          <p><i class="bi bi-arrow-right-circle"></i> <a href="contact.php" class="text-decoration-none">Contact Us</a></p> -->
+          <p><a href="home.php" class="text-decoration-none">Home</a></p>
+          <p><a href="aboutus.php" class="text-decoration-none">About Us</a></p>
+          <p><a href="reviews.php" class="text-decoration-none">Reviews</a></p>
+          <p><a href="contact.php" class="text-decoration-none">Contact Us</a></p>
         </div>
       </div>
     </div>

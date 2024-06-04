@@ -61,8 +61,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
     <title>Chat Interface</title>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    
     <style>
         body {
             overflow-x: hidden;
@@ -99,6 +98,18 @@ while ($row = mysqli_fetch_assoc($result)) {
         .bg {
             background-color: antiquewhite;
         }
+
+        /* @media (max-aspect-ratio: 1/1) {
+        .row.text-center {
+            padding-top: 3rem;
+        }
+    }
+
+    @media (min-aspect-ratio: 1/1) {
+        .row.text-center {
+            padding-top: 0;
+        }
+    } */
     </style>
 </head>
 
@@ -146,11 +157,25 @@ while ($row = mysqli_fetch_assoc($result)) {
                                 <?php echo $msg; ?> <!-- Display message status -->
                             </div>
                             <form method="POST" action="">
-                                <div class="input-group mt-3">
-                                <textarea name="message" class="form-control chat-input mySummernote" rows="3" required></textarea>
-                                    <!-- <input type="text" class="form-control chat-input" placeholder="Type your message here..." name="message"> -->
-                                    <button type="submit" class="mbtn1" name="send">Send</button>
+                                <!-- <div class="row text-center">
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control chat-input" style="width: 100%;" placeholder="Type your message here..." name="message">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="submit" class="mbtn1" style="width: 100%;" name="send">Send</button>
+                                    </div>
+                                    
+                                </div> -->
+                                <div class="row text-center">
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control chat-input" style="width: 100%;" placeholder="Type your message here..." name="message">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="submit" class="mbtn1" style="width: 80%;" name="send">Send</button>
+                                    </div>
                                 </div>
+
+                               
                                 <div class="text-center my-5 ">
                                     <div class="md-12 py-3">
                                     Is your product customized? 
@@ -167,18 +192,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             <footer>
                 <p class="text-center py-3"><a href="https://github.com/krishnaluharuka/Hi5treasures._.pkr" class="text-decoration-none text-dark"> By Janapriya Multiple Campus | All Rights Reserved</a></p>
             </footer>
-                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-            <!-- Summernote JS - CDN Link -->
-            <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-            <script>
-                $(document).ready(function() {
-                    $(".mySummernote").summernote();
-                    $('.dropdown-toggle').dropdown();
-                });
-            </script>
-    <!-- //Summernote JS - CDN Link -->
+              
             <script>
                 // JavaScript for handling chat input and scrolling
                 document.addEventListener('DOMContentLoaded', function() {

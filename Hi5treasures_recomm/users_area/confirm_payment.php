@@ -3,6 +3,8 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 include('../includes/connect.php');
+include('setting.php');
+include('navbar1.php');
 include('../include_aboutus.php');
 
 $user_name = $_SESSION['username'];
@@ -11,98 +13,83 @@ if (!isset($user_name)) {
     echo "<script>window.open('user_login.php','_self')</script>";
     exit();
 }
-
-if (isset($_GET['order_id'])) {
-    $order_id = intval($_GET['order_id']);
-    $select_data = "SELECT * FROM user_orders WHERE order_id = $order_id";
-    $result = mysqli_query($con, $select_data);
-    if ($result && mysqli_num_rows($result) > 0) {
-        $row_fetch = mysqli_fetch_assoc($result);
-        $invoice_number = $row_fetch['invoice_number'];
-        $amount_due = $row_fetch['amount_due'];
-    } else {
-        echo "<h3 class='text-center text-danger'>Invalid order ID.</h3>";
-        exit();
-    }
-}
-
-if (isset($_POST['confirm_payment'])) {
-    $invoice_number = intval($_POST['invoice_number']);
-    $payment_mode = htmlspecialchars(trim($_POST['payment_mode']));
-    $order_id = intval($_POST['order_id']);
-
-    // Check if order_id is set and valid
-    if (!$order_id) {
-        die('Invalid order ID.');
-    }
-
-    // Retrieve the correct amount from the database
-    $query = "SELECT amount_due FROM user_orders WHERE order_id = $order_id";
-    $result = mysqli_query($con, $query);
-    if ($result) {
-        $row = mysqli_fetch_assoc($result);
-        $amount_due = $row['amount_due']; // Get the correct amount from the database
-
-        $insert_query = "INSERT INTO user_payments (order_id, invoice_number, amount, payment_mode) VALUES ($order_id, $invoice_number, $amount_due, '$payment_mode')";
-        $result = mysqli_query($con, $insert_query);
-        if ($result) {
-            echo "<h3 class='text-center'>Successfully completed the payment</h3>";
-            echo "<script>window.open('profile.php?my_orders','_self')</script>";
-
-            // Update the order status to complete
-            $update_orders = "UPDATE user_orders SET order_status = 'Complete' WHERE order_id = $order_id";
-            mysqli_query($con, $update_orders);
-        } else {
-            echo "<h3 class='text-center text-danger'>Payment could not be processed. Please try again.</h3>";
-        }
-    } else {
-        echo "<h3 class='text-center text-danger'>Order not found. Please try again.</h3>";
-    }
-}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Page</title>
+    <title>Payment page</title>
     <link href="../admin_area/admin_images/<?php echo $logo; ?>" rel="icon" type="image/icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="../css/style.css" rel="stylesheet">
+    <style>
+        .full-height {
+            height: 80vh;
+        }
+        .mbtn5 {
+            height: 50px;
+            width: 100%;
+            outline: none;
+            border: none;
+            color: white;
+            background: rgb(197, 12, 99);
+            border-radius: 50px;
+            transition: all 0.4s;
+        }
+
+        .mbtn5:hover {
+            background-color: antiquewhite;
+            color: black;
+            border: 1px solid black;
+        }
+    </style>
 </head>
-
-<body style="background-color: antiquewhite;">
+<body>
     <div>
-        <div class="container my-5">
-            <h2 class="text-center">Confirm Payment</h2>
-            <form action="confirm_payment.php" method="post">
-                <input type="hidden" name="order_id" value="<?php echo $order_id; ?>">
-                <div class="form-outline my-4 text-center w-50 m-auto">
-                    <input type="text" class="form-control w-50 m-auto" name="invoice_number" value="<?php echo $invoice_number; ?>" readonly>
+    <div class="container full-height d-flex justify-content-center align-items-center">
+                <div class="row d-flex justify-content-center align-items-center">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <form action="confirm_payment1.php" method="POST">
+                        <div class="text-center">
+                        <input value="<?php echo $order_id ?>" name="order_id" type="hidden">
+                        <input value="Pay offline" type="submit" name="submit" class="mbtn5 px-2 my-3">
+                        </div>
+                     </form>
+                    </div>
+                
+        <form action=<?php echo $epay_url ?> method="POST">
+            <input value="<?php echo $actualamount; ?>" name="tAmt" type="hidden">
+            <input value="<?php echo $amount_due; ?>" name="amt" type="hidden">
+            <input value="0" name="txAmt" type="hidden">
+            <input value="0" name="psc" type="hidden">
+            <input value="<?php echo $damt; ?>" name="pdc" type="hidden">
+            <input value=<?php echo $merchant_code ?> name="scd" type="hidden">
+            <input value="<?php echo $order_id ?>" name="pid" type="hidden">
+            <input value=<?php echo $successurl ?> type="hidden" name="su">
+            <input value=<?php echo $failedurl ?> type="hidden" name="fu">
+            
+            
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="text-center">
+                            <input value="Pay with Esewa" type="submit" class="mbtn5 px-2">
+                        </div>
+                    </div>
                 </div>
-                <div class="form-outline my-4 text-center w-50 m-auto">
-                    <label for="amount">Amount</label>
-                    <input type="text" class="form-control w-50 m-auto" name="amount" value="<?php echo $amount_due; ?>" readonly>
-                </div>
-                <div class="form-outline my-4 text-center w-50 m-auto">
-                    <select name="payment_mode" class="form-select w-50 m-auto" required>
-                        <option value="" disabled selected>Select Payment Mode</option>
-                        <option>Mobile Banking</option>
-                        <option>esewa</option>
-                        <option>Cash on delivery</option>
-                        <option>Pay offline</option>
-                    </select>
-                </div>
-                <div class="form-outline my-4 text-center w-50 m-auto">
-                    <input type="submit" class="mbtn1" value="Confirm" name="confirm_payment">
-                </div>
-            </form>
-        </div>
+            </div>
+        </form>
+        
     </div>
+    <footer class="contact">
+        <p class="text-center py-3">
+            <a href="https://github.com/krishnaluharuka/Hi5treasures._.pkr" class="text-decoration-none text-dark">
+                By Janapriya Multiple Campus | All Rights Reserved
+            </a>
+        </p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
-
 </html>
-
 <?php mysqli_close($con); ?>
+
