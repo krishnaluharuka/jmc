@@ -61,6 +61,8 @@ while ($row = mysqli_fetch_assoc($result)) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
     <title>Chat Interface</title>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <style>
         body {
             overflow-x: hidden;
@@ -145,13 +147,18 @@ while ($row = mysqli_fetch_assoc($result)) {
                             </div>
                             <form method="POST" action="">
                                 <div class="input-group mt-3">
-                                    <input type="text" class="form-control chat-input" placeholder="Type your message here..." name="message">
+                                <textarea name="message" class="form-control chat-input mySummernote" rows="3" required></textarea>
+                                    <!-- <input type="text" class="form-control chat-input" placeholder="Type your message here..." name="message"> -->
                                     <button type="submit" class="mbtn1" name="send">Send</button>
                                 </div>
-                                <div class="text-end my-5 ">
+                                <div class="text-center my-5 ">
+                                    <div class="md-12 py-3">
                                     Is your product customized? 
-                                <a href="users_area/checkout.php" class="text-end mbtn2 text-decoration-none p-3 mt-5 ms-3 rounded-0">Check Out</a>
-                                            </div>
+                                    </div>
+                                    <div class="md-12">
+                                    <a href="users_area/checkout.php" class="text-end mbtn2 text-decoration-none p-3 mt-5 ms-3 rounded-0">Check Out</a>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -160,7 +167,18 @@ while ($row = mysqli_fetch_assoc($result)) {
             <footer>
                 <p class="text-center py-3"><a href="https://github.com/krishnaluharuka/Hi5treasures._.pkr" class="text-decoration-none text-dark"> By Janapriya Multiple Campus | All Rights Reserved</a></p>
             </footer>
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
+            <!-- Summernote JS - CDN Link -->
+            <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+            <script>
+                $(document).ready(function() {
+                    $(".mySummernote").summernote();
+                    $('.dropdown-toggle').dropdown();
+                });
+            </script>
+    <!-- //Summernote JS - CDN Link -->
             <script>
                 // JavaScript for handling chat input and scrolling
                 document.addEventListener('DOMContentLoaded', function() {
