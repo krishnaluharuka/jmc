@@ -50,6 +50,9 @@ include('include_aboutus.php');
           <p><i class="bi bi-arrow-right-circle"></i> <a href="aboutus.php" class="text-decoration-none">About Us</a></p>
           <p><i class="bi bi-arrow-right-circle"></i> <a href="reviews.php" class="text-decoration-none">Reviews</a></p>
           <p><i class="bi bi-arrow-right-circle"></i> <a href="contact.php" class="text-decoration-none">Contact Us</a></p>
+          <p><i class="bi bi-arrow-right-circle"></i> <a href="faq_display.php" class="text-decoration-none">FAQ</a></p>
+          <p><i class="bi bi-arrow-right-circle"></i> <a href="recommendation.php" class="text-decoration-none">Recommendation</a></p>
+          <p><i class="bi bi-arrow-right-circle"></i> <a href="wishlist.php" class="text-decoration-none">Wishlist</a></p>
         </div>
       </div>
     </div>
