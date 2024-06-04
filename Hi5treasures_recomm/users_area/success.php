@@ -15,6 +15,10 @@ $ref = isset($_GET['refId']) ? $_GET['refId'] : null;
 $order_id = isset($_GET['oid']) ? $_GET['oid'] : null;
 $actualamount = isset($_GET['amt']) ? $_GET['amt'] : null;
 
+$select="Select * from orders_pending where order_id='$order_id'";
+$select_run=mysqli_query($con,$select);
+$row_fetch=mysqli_fetch_assoc($select_run);
+$invoice_number=$row_fetch['invoice_number'];
 $update_orders = "update user_payments set invoice_number='$invoice_number' where order_id='$order_id'";
         $result_orders = mysqli_query($con, $update_orders);
 
