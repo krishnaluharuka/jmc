@@ -40,6 +40,7 @@ if (isset($_POST['submit_feedback'])) {
   <link href="images/logo.jpg" rel="icon" type="image/icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
   <link href="css/style.css" rel="stylesheet">
   <style>
     .mbtn5 {
@@ -61,118 +62,12 @@ if (isset($_POST['submit_feedback'])) {
       border: 1px solid black;
     }
     </style>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- Customer's reviews -->
-  <!-- <section class="reviews" id="reviews">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 py-4">
-          <h1 class="text-center ">CUSTOMER'S<span class="px-4">REVIEWS</span></h1>
-        </div>
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="single-item">
-                <div class="row">
-                  <div class="col-lg-6 col-md-6 col-sm-12 py-5">
-                    <div class="profile">
-                      <div class="img-area">
-                        <img src="images/reviews2.jpg" alt="">
-                      </div>
-                      <div class="bio text-center">
-                        <h2>Dinesh Ghimire</h2>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="content py-5 my-5">
-                      <p><span><i class="bi bi-quote-left"></i></span>I loved
-                        the way you can customize gifts as per your need and
-                        the items I got were of great quality with reasonable
-                        price. Pretty packing too. Immediate response of your
-                        message. Slightly pissed off with courier service
-                        outside the valley. Else its a perfect place. Felt
-                        proud to have this kind of service in Nepal. Keep
-                        on extending your service and branches if possible.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="single-item">
-                <div class="row">
-                  <div class="col-lg-6 col-md-6 col-sm-12 py-5">
-                    <div class="profile">
-                      <div class="img-area">
-                        <img src="images/reviews2.jpg" alt="">
-                      </div>
-                      <div class="bio text-center">
-                        <h2>Krzy Aarush</h2>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="content py-5 my-5">
-                      <p><span><i class="bi bi-quote-left color-danger"></i></span>Thank you so much
-                        Hi5treasures for your astonishing surprising gift<i class="bi bi-gift-fill"></i>
-                        inspite of having some issue ur team did it well and gifts reached in the place
-                        where it should be<i class="bi bi-heart-fill color-danger"></i> again thank you so much fr ur effort hope ur business will go
-                        on the top one day love from pokhara.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="carousel-item">
-              <div class="single-item">
-                <div class="row">
-                  <div class="col-lg-6 col-md-6 col-sm-12 py-5">
-                    <div class="profile">
-                      <div class="img-area">
-                        <img src="images/reviews4.png" alt="">
-                      </div>
-                      <div class="bio text-center">
-                        <h2>Smitha</h2>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="content py-5 my-5">
-                      <p><span><i class="bi bi-quote-left color-danger"></i></span>
-                        I received the parcel today and i fell in love with the gifts thankuh....
-                        Thankuh for providing me this gifts all the way from australia....really appreciate
-                        <i class="bi bi-heart-fill"></i>
-
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section> -->
   <div class="container mt-5">
     <?php
 
@@ -194,6 +89,27 @@ if (isset($_POST['submit_feedback'])) {
       $username = $row_fetch['username'];
       $image = $row_fetch['user_image'];
 
+    //   if (isset($_GET['search_data_product'])) {
+            
+    //     // Sanitize the input
+    //     $search = test($_GET['search_data']);
+    
+    //     // Check for script tags after sanitization
+    //     // if (preg_match('/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/i', $search)) {
+    //     //     die('Invalid input. Scripts are not allowed.');
+    //     // }
+        
+    //     // Proceed with search functionality
+    //     // echo "Search term: " . $search;
+        
+    // }
+    // function test($data) {
+    //     $data = trim($data);
+    //     $data = stripslashes($data);
+    //     $data = htmlspecialchars($data);
+    //     return $data;
+    // }
+
       echo "<div class='mb-3'>
                 <div class='row g-0'>
                   <div class='col-md-2 text-center'>
@@ -214,10 +130,10 @@ if (isset($_POST['submit_feedback'])) {
       <div class='row g-0'>
         <div class='col-md-12'>
           <div class='body'>
-          <form action="" method="post" class="mt-5">
+          <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="mt-5">
             <p class='text'>
             <div class="form-outline mb-4 w-90 m-auto">
-              <textarea name="enter_feedback" id="enter_feedback" class="form-control h-auto m-auto" placeholder="Enter your feedback" required="required"></textarea>
+              <textarea name="enter_feedback" id="enter_feedback" class="form-control h-auto m-auto  mySummernote" placeholder="Enter your feedback" required="required"></textarea>
             </div>
 
             <!-- Submit -->
@@ -237,6 +153,18 @@ if (isset($_POST['submit_feedback'])) {
   include('footer.php');
   ?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Summernote JS - CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".mySummernote").summernote();
+            $('.dropdown-toggle').dropdown();
+        });
+    </script>
+    <!-- //Summernote JS - CDN Link -->
 </body>
 
 </html>

@@ -39,6 +39,7 @@ if (!isset($admin_user)) {
                 <th>Due Amount</th>
                 <th>Invoice Number</th>
                 <th>Total Products</th>
+                <th>View Products</th>
                 <th>Order Date</th>
                 <th>Status</th>
                 <th>Receiver Details</th>
@@ -61,6 +62,7 @@ if (!isset($admin_user)) {
                     <td>$amount_due</td>
                     <td>$invoice_number</td>
                     <td>$total_products</td>
+                    <td><a href='generate_pdf.php?order_id=<?= $order_id; ?>'>View</a></td>
                     <td>$order_date</td>
                     <td>
                     <td>$order_status</td>

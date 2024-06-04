@@ -179,6 +179,7 @@ function search_product()
                    '%$search_data_value%'";
     $result_query = mysqli_query($con, $search_query);
     $num_of_rows = mysqli_num_rows($result_query);
+
     if ($num_of_rows == 0) {
       echo "<h2 class='text-center text-danger' ><img src='images/search.gif'></h2>";
     }
@@ -200,8 +201,22 @@ function search_product()
       if (isset($_GET['search_data_product'])) {
         if(isset($_SESSION['user_id'])){
           $user_id=$_SESSION['user_id'];
-          $insert="insert into search(user_id,product_id,category_id) values($user_id,$product_id,$category_id)";
-          $insert_run=mysqli_query($con,$insert);
+
+          $check_query = "SELECT * FROM search WHERE user_id = $user_id AND product_id = $product_id AND category_id = $category_id";
+          $check_result = mysqli_query($con, $check_query);
+
+          // $insert="insert into search(user_id,product_id,category_id) values($user_id,$product_id,$category_id)";
+          // $insert_run=mysqli_query($con,$insert);
+          if (mysqli_num_rows($check_result) == 0) {
+            // Insert the record only if it doesn't already exist
+            $insert_query = "INSERT IGNORE INTO search (user_id, product_id, category_id) VALUES ($user_id, $product_id, $category_id)";
+            $insert_result = mysqli_query($con, $insert_query);
+
+            if (!$insert_result) {
+                // Handle insertion error
+                echo "Error: " . mysqli_error($con);
+            }
+        }
         }
       echo "<div class='col-xl-3 col-lg-3 col-md-6 col-12 col-sm-12 mb-3'>
                         <div class='card border border-dark h-100'>
