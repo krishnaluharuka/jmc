@@ -476,6 +476,10 @@ function admin_front()
   // if (!isset($_GET['list_about_us'])) {
     if (!isset($_GET['get_message'])) {
     if (!isset($_GET['edit_about_us'])) {
+      if (!isset($_GET['insert_faq'])) {
+        if (!isset($_GET['list_faq'])) {
+          if (!isset($_GET['edit_faq'])) {
+            if (!isset($_GET['delete_faq'])) {
     if (!isset($_GET['insert_product'])) {
       if (!isset($_GET['insertcategoriess'])) {
         if (!isset($_GET['view_products'])) {
@@ -578,7 +582,7 @@ function admin_front()
       }
     }
   }
-}}}
+}}}}}}}
 
 function remove_wish()
 {
