@@ -2,7 +2,7 @@
 include('includes/connect.php');
 include('include_aboutus.php');
 ?>
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,7 +17,7 @@ include('include_aboutus.php');
   <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body> -->
+<body> 
 
   <footer class="contact">
     <div class="container">
