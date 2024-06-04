@@ -25,7 +25,7 @@ if (!isset($admin_user)) {
 
 <body>
     <h3 class="text-center my-3">ALL <span class="px-4">ORDERS</span></h3>
-    <table class="table table-bordered">
+    <table id="myTable" class="table table-bordered">
         <thead class="bg">
             <?php
             $get_orders = "Select * from user_orders";
@@ -91,6 +91,9 @@ if (!isset($admin_user)) {
             ?>
             </tbody>
     </table>
+            <?php
+include ('page.php');
+?>
 </body>
 
 </html>
