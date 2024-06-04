@@ -82,6 +82,9 @@ include('include_aboutus.php');
             <a class="nav-link" href="recommendation.php">Choices</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="faq_display.php">FAQ</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="cart.php"><i class="bi bi-cart-fill m-0"></i><sup><?php cart_item(); ?></sup></a>
           </li>
           <li>
