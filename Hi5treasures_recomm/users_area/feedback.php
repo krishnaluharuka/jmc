@@ -42,7 +42,32 @@ if (isset($_POST['submit_feedback'])) {
     <link href="../css/style.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-</head>
+<style>
+        .star-rating {
+      direction: rtl;
+      display: inline-flex;
+    }
+
+    .star-rating input[type=radio] {
+      display: none;
+    }
+
+    .star-rating label {
+      font-size: 2rem;
+      color: #ddd;
+      cursor: pointer;
+    }
+
+    .star-rating input[type=radio]:checked~label {
+      color: #ddd;
+    }
+
+    .star-rating input[type=radio]:checked + label,
+        .star-rating input[type=radio]:checked + label ~ label {
+            color: #f5b301;
+        }
+    </style>
+    </head>
 
 <body>
     <h1 class="text-center p-4 mt-5">PROVIDE<span class="px-4"> FEEDBACK</span></h1>
@@ -50,7 +75,13 @@ if (isset($_POST['submit_feedback'])) {
     <form action="" method="post" class="mt-5">
         <!-- title -->
         <div class="form-outline mb-4 w-50 m-auto">
-            <label for="enter_feedback" class="form-label fs-4">Enter Feedback</label>
+            <div class="star-rating">
+                <input type="radio" id="star5" name="star" value="5"><label for="star5" class="bi bi-star"></label>
+                <input type="radio" id="star4" name="star" value="4"><label for="star4" class="bi bi-star"></label>
+                <input type="radio" id="star3" name="star" value="3"><label for="star3" class="bi bi-star"></label>
+                <input type="radio" id="star2" name="star" value="2"><label for="star2" class="bi bi-star"></label>
+                <input type="radio" id="star1" name="star" value="1"><label for="star1" class="bi bi-star"></label>
+            </div>
             <textarea name="enter_feedback" id="enter_feedback" class="form-control h-auto m-auto mySummernote" placeholder="Enter your feedback"  required="required"></textarea>
         </div>
 
