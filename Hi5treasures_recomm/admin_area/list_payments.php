@@ -50,6 +50,12 @@ if (!isset($admin_user)) {
                     $invoice_number = $row_data['invoice_number'];
                     $amount = $row_data['amount'];
                     $payment_mode = $row_data['payment_mode'];
+                    if($invoice_number=='0' && $payment_mode=='esewa')
+                    {
+                        $select_run=mysqli_query($con,"Select * from orders_pending where order_id='$order_id'");
+                        $row=mysqli_fetch_assoc($select_run);
+                        $invoice_number=$row['invoice_number'];
+                    }
                     $date = $row_data['date'];
                     $number++;
                     echo "<tr>
@@ -65,23 +71,7 @@ if (!isset($admin_user)) {
                         </a>
                     </td>
                 </tr>";
-                    // echo "<div class='modal fade' id='exampleModal' tabindex='-1' role='dialog' 
-                    // aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                    //   <div class='modal-dialog' role='document'>
-                    //     <div class='modal-content'>
-                    //       <div class='modal-body'>
-                    //         <h4>Are you sure you want to delete this?</h4>
-                    //       </div>
-                    //       <div class='modal-footer'>
-                    //         <button type='button' class='mbtn1' data-dismiss='modal'>
-                    //             <a href='./index.php?list_payments' class='text-light text-decoration-none'>No</a></button>
-                    //         <button type='button' class='mbtn1'><a href='index.php?delete_payment=$payment_id' 
-                    //         class='text-light text-decoration-none'> Yes</a></button>
-                    //       </div>
-                    //     </div>
-                    //   </div>
-                    // </div>";
-                    echo "<div class='modal fade' id='Modal_$order_id' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                    echo "<div class='modal fade' id='Modal_$paymentr_id' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
             <div class='modal-dialog'>
                 <div class='modal-content'>
                     <div class='modal-body'>
