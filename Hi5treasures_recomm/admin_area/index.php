@@ -195,6 +195,9 @@ if (!isset($admin_user)) {
         if (isset($_GET['list_orders'])) {
           include('list_orders.php');
         }
+        if (isset($_GET['view_details'])) {
+          include('view_details.php');
+        }
         if (isset($_GET['delete_order'])) {
           include('delete_order.php');
         }
