@@ -269,7 +269,7 @@ function view_details()
                               <img src='./admin_area/product_images/$product_image1' alt='$product_title'>
                             </div>
                             <div class='card-body'>
-                              <h5 class='card-title'>$product_title</h5>
+                             <h4 class='card-title'><a href='wishlist.php?product_id=$product_id' class='btn1 text-dark ms-0' title='Like this image'><i class='bi bi-heart fs-5 me-2'></i></a>$product_title</h4>
                               <p class='card-text'>$product_description</p>
                               <p class='card-text'>NPR: $product_price /-</p>
                               <a href='home.php?add_to_cart=$product_id' class='mbtn3 p-2 my-1'>Add To Cart</a>
