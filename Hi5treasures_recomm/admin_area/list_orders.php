@@ -66,6 +66,7 @@ if (!isset($admin_user)) {
                     <td>$order_date</td>
                     <td>
                     <td>$order_status</td>
+                    <td><a href='index.php?view_details=$order_id'>View Details</a></td>
                     <td>
                         <a href='index.php?delete_order=$order_id' type='button' 
                            class='text-dark' data-bs-toggle='modal' data-bs-target='#Modal_$order_id'>
