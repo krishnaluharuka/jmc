@@ -575,19 +575,18 @@ function admin_front()
                     </div>
                     </div>
                 </div>
-              </div>
-              </div>
               ";
                       echo "<div class='col-sm-6 col-lg-6 mb-3'>
                         <div class='card  bg1 border shadow rounded'>
                         <div class='card-body text-center'>
-                        <h5 class='card-title'><i class='bi bi-people d-block fs-1 mb-3'></i>Users 
+                        <h5 class='card-title'><i class='bi bi-star-half d-block fs-1 mb-3'></i>Reviews 
 
                          ($row_count6) 
                         </h5>
                             
                         </div>
                         </div>
+                    </div></div>
                     </div>";
                     }
                     }
