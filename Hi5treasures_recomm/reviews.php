@@ -10,6 +10,7 @@ if (isset($_POST['submit_feedback'])) {
   }
   $username = $_SESSION['username'];
   echo $username;
+  $rating=$_POST['star'];
   $feedback = $_POST['enter_feedback'];
   echo $feedback;
 
@@ -19,7 +20,7 @@ if (isset($_POST['submit_feedback'])) {
   $user_id = $row_fetch['user_id'];
 
   // insert query
-  $insert_feedback = "insert into feedback (feedback,user_id,date) values  ('$feedback','$user_id',NOW())";
+  $insert_feedback = "insert into feedback (feedback,user_id,rating,date) values  ('$feedback','$user_id','$rating',NOW())";
   $result_query = mysqli_query($con, $insert_feedback);
   if ($result_query) {
     echo "<script>alert('Successfully submitted the feedback')</script>";
@@ -42,6 +43,10 @@ if (isset($_POST['submit_feedback'])) {
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 
   <link href="css/style.css" rel="stylesheet">
+  <!-- Font Awesome Icon Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
   <style>
     .mbtn5 {
       height: 50px;
@@ -61,6 +66,29 @@ if (isset($_POST['submit_feedback'])) {
       color: black;
       border: 1px solid black;
     }
+     .star-rating {
+      direction: rtl;
+      display: inline-flex;
+    }
+
+    .star-rating input[type=radio] {
+      display: none;
+    }
+
+    .star-rating label {
+      font-size: 2rem;
+      color: #ddd;
+      cursor: pointer;
+    }
+
+    .star-rating input[type=radio]:checked~label {
+      color: #ddd;
+    }
+
+    .star-rating input[type=radio]:checked + label,
+        .star-rating input[type=radio]:checked + label ~ label {
+            color: #f5b301;
+        }
     </style>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
@@ -78,6 +106,7 @@ if (isset($_POST['submit_feedback'])) {
       $feedback = $row['feedback'];
       $user_id = $row['user_id'];
       $date = $row['date'];
+      $rating = $row['rating'];
       $datetime = explode(" ", $date);
       $dateonly = $datetime[0];
       $time = $datetime[1];
@@ -118,22 +147,24 @@ if (isset($_POST['submit_feedback'])) {
                   <div class='col-md-10'>
                     <div class='body'>
                       <h5 class='title'>$username</h5>
-                      <p class='text'>$feedback</p>
-                      <p class='text'><small class='text-muted'>$dateonly at $time</small></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>";
+                      <p class='text'>";
+                     
     }
     ?>
     <div class='mb-3'>
       <div class='row g-0'>
         <div class='col-md-12'>
-          <div class='body'>
-          <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="mt-5">
-            <p class='text'>
-            <div class="form-outline mb-4 w-90 m-auto">
-              <textarea name="enter_feedback" id="enter_feedback" class="form-control h-auto m-auto  mySummernote" placeholder="Enter your feedback" required="required"></textarea>
+         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="mt-5">
+           <div class="form-outline mb-4 w-90 m-auto">
+             <div class="star-rating">
+                <input type="radio" id="star5" name="star" value="5"><label for="star5" class="bi bi-star"></label>
+                <input type="radio" id="star4" name="star" value="4"><label for="star4" class="bi bi-star"></label>
+                <input type="radio" id="star3" name="star" value="3"><label for="star3" class="bi bi-star"></label>
+                <input type="radio" id="star2" name="star" value="2"><label for="star2" class="bi bi-star"></label>
+                <input type="radio" id="star1" name="star" value="1"><label for="star1" class="bi bi-star"></label>
+              </div>
+            
+       <textarea name="enter_feedback" id="enter_feedback" class="form-control h-auto m-auto  mySummernote" placeholder="Enter your feedback" required="required"></textarea>
             </div>
 
             <!-- Submit -->
@@ -142,7 +173,7 @@ if (isset($_POST['submit_feedback'])) {
             </div>
             </p>
           </form>
-          </div>
+         
         </div>
       </div>
     </div>
