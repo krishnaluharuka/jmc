@@ -488,6 +488,7 @@ function admin_front()
             if (!isset($_GET['edit_category'])) {
             if (!isset($_GET['list_users'])) {
               if (!isset($_GET['list_orders'])) {
+                if (!isset($_GET['view_details'])) {
                 if (!isset($_GET['delete_account'])) {
                   if (!isset($_GET['edit_account'])) {
                     if (!isset($_GET['list_payments'])) {
@@ -582,7 +583,8 @@ function admin_front()
       }
     }
   }
-}}}}}}}
+}}}}}}})
+  
 
 function remove_wish()
 {
