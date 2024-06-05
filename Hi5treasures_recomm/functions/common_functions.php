@@ -486,6 +486,8 @@ function admin_front()
           if (!isset($_GET['edit_products'])) { 
           if (!isset($_GET['view_categories'])) {
             if (!isset($_GET['edit_category'])) {
+              if (!isset($_GET['list_reviews'])) {
+            if (!isset($_GET['delete_review'])) {
             if (!isset($_GET['list_users'])) {
               if (!isset($_GET['list_orders'])) {
                 if (!isset($_GET['view_details'])) {
@@ -511,6 +513,10 @@ function admin_front()
                       $get_notification = "Select * from chat where is_read = 0";
                       $result5 = mysqli_query($con, $get_notification);
                       $row_count5 = mysqli_num_rows($result5);
+
+                      $get_reviews="SELECT * from feedback";
+                      $result6=mysqli_query($con,$get_reviews);
+                      $row_count6=mysqli_num_rows($result6);
 
                       echo "
                       
@@ -572,6 +578,17 @@ function admin_front()
               </div>
               </div>
               ";
+                      echo "<div class='col-sm-6 col-lg-6 mb-3'>
+                        <div class='card  bg1 border shadow rounded'>
+                        <div class='card-body text-center'>
+                        <h5 class='card-title'><i class='bi bi-people d-block fs-1 mb-3'></i>Users 
+
+                         ($row_count6) 
+                        </h5>
+                            
+                        </div>
+                        </div>
+                    </div>";
                     }
                     }
                   }
@@ -583,7 +600,7 @@ function admin_front()
       }
     }
   }
-}}}}}}})
+}}}}}}})}}
   
 
 function remove_wish()
