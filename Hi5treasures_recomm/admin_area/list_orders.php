@@ -87,10 +87,27 @@ if (!isset($admin_user)) {
             </div>
         </div>";
                 }
-            }
+            
             ?>
             </tbody>
     </table>
+                <form action=""method="post" class="text-end">
+            <input type="submit" value="Delete ALL" class="mbtn1 my-1 px-1" name="delete_all">
+            </form>
+            <?php } ?>
+<?php
+  if (isset($_POST['delete_all'])) {
+    $delete_query = "Delete from `user_orders`";
+    $run_delete = mysqli_query($con, $delete_query);
+    if ($run_delete) {
+      echo "<script>alert('Deleted all the orders successfully.')</script>";
+      echo "<script>window.open('./index.php?list_orders','_self')</script>"; 
+    }
+  }
+
+
+
+  ?>
             <?php
 include ('page.php');
 ?>
