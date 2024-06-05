@@ -56,11 +56,11 @@ if (isset($_POST['confirm_payment'])) {
             <form action="" method="post">
             <input value="<?php echo $order_id ?>" name="order_id" type="hidden">
                 <div class="form-outline my-4 text-center w-50 m-auto">
-                    <input type="text" class="form-control w-50 m-auto" name="invoice_number" value="<?php echo $invoice_number; ?>">
+                    <input type="text" class="form-control w-50 m-auto" name="invoice_number" value="<?php echo $invoice_number; ?>" readonly>
                 </div>
                 <div class="form-outline my-4 text-center w-50 m-auto">
                     <label for="">Amount</label>
-                    <input type="text" class="form-control w-50 m-auto" name="amount" value="<?php echo $amount_due; ?>">
+                    <input type="text" class="form-control w-50 m-auto" name="amount" value="<?php echo $amount_due; ?>" readonly>
                 </div>
                 <div class="form-outline my-4 text-center w-50 m-auto">
                     <select name="payment_mode" class="form-select w-50 m-auto">

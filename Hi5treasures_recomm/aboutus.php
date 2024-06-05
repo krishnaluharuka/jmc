@@ -74,7 +74,7 @@ include('include_aboutus.php');
     </div> -->
   </div>
   <section class="main py-1 my-1" id="home">
-    <div class="container">
+    <div class="container text-center">
       <div class="row py-3 my-1">
         <div class="col-lg-12 col-md-12 col-sm-12 py-1">
 
@@ -116,7 +116,7 @@ include('include_aboutus.php');
     <h4 class="text-center"><?php echo "'" . $motto . "..'"; ?></h3>
   </div>
   <div class="container d-flex justify-content-center align-items-center">
-    <div class="embed-responsive embed-responsive-21by9">
+    <div class="embed-responsive embed-responsive-21by9 text-center">
       <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fhi5treasures%2Fvideos%2F1369584947214001%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true" class="m-3"></iframe>
 
       <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fhi5treasures%2Fvideos%2F297976633014179%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true" class="m-3"></iframe>
