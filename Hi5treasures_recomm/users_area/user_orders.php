@@ -8,8 +8,6 @@ if (!isset($username)) {
     echo "<script>window.open('user_login.php','_self')</script>";
 }
 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,6 +49,7 @@ if (!isset($username)) {
                 <th>Total products</th>
                 <th>Invoice number</th>
                 <th>Date</th>
+                <th>Receiver Details</th>
                 <th>Complete/Incomplete</th>
                 <th>Status</th>
                 </tr>
@@ -76,6 +75,7 @@ if (!isset($username)) {
                     <td>$total_products</td>
                     <td>$invoice_number</td>
                     <td>$order_date</td>
+                    <td><a href='recipient_form.php?order_id=$order_id'>Insert Details</a></td>
                     <td>$order_status</td>";
                     if ($order_status == 'Complete') {
                         echo "<td>Paid</td>";
