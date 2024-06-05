@@ -133,6 +133,9 @@ if (!isset($admin_user)) {
             <a class="nav-link text-dark" aria-current="page" href="index.php?list_payments"><i class="bi bi-wallet2 pe-2"></i> All Payments</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link text-dark" aria-current="page" href="index.php?list_reviews"><i class="bi bi-star-fill pe-2"></i> All Reviews</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link text-dark" aria-current="page" href="index.php?list_users"><i class="bi bi-people pe-2"></i> List Users</a>
           </li>
           <li class="nav-item">
@@ -206,6 +209,12 @@ if (!isset($admin_user)) {
         }
         if (isset($_GET['delete_payment'])) {
           include('delete_payment.php');
+        }
+        if (isset($_GET['list_reviews'])) {
+          include('list_reviews.php');
+        }
+        if (isset($_GET['delete_review'])) {
+          include('delete_review.php');
         }
         if (isset($_GET['list_users'])) {
           include('list_users.php');
